@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    /* Button */
+    .btn {
+        @apply text-sm md:text-lg lg:text-xl px-1 md:px-2 lg:px-4 py-1 lg:py-2 border border-slate-200 rounded-md flex space-x-1 md:space-x-2 items-center justify-center transition duration-200 ease-in-out text-orange-100 hover:text-white bg-orange-600 hover:bg-orange-500;
+    }
+    .btn.light {
+        @apply text-orange-900 hover:text-white bg-orange-200 hover:bg-orange-500;
+    }
+    .btn-light img {
+        @apply h-2 md:h-4 w-2 md:w-4;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        @apply w-fit md:w-1/5 lg:w-1/5 h-auto bg-white text-slate-900 shadow-md transition duration-200 ease-in-out;
+    }
+    .sidebar.show {
+        @apply fixed top-0 -left-full z-20;
+    }
+    .sidebar.hide {
+        @apply sm:sticky top-0 left-0;
+    }
+
+    /* Sidebar Menu */
+    .sidebar-menu-item {
+        @apply text-sm lg:text-lg flex justify-start items-center space-x-3 px-3 py-2 border-l-4 border-white transition duration-300 ease-in-out hover:border-orange-600 hover:bg-orange-500/20;
+    }
+    .sidebar-menu-item.active {
+        @apply border-orange-600 bg-orange-500/20;
+    }
+    
+    /* Sidebar Menu */
+    .sidebar-project-list {
+        @apply flex flex-col justify-start items-center;
+    }
+    .sidebar-project-item {
+        @apply w-full flex items-center justify-between text-sm lg:text-lg  px-3 py-2 border-l-4 border-white transition duration-300 ease-in-out hover:border-orange-600 hover:bg-orange-500/20;
+    }
+    .sidebar-project-item.active {
+        @apply border-orange-600 bg-orange-500/20;
+    }
+    .project-item-info {
+        @apply overflow-hidden;
+    }
+    .sidebar-project-item span {
+        @apply flex items-center justify-between space-x-2;
+    }
+    .sidebar-project-item img {
+        @apply cursor-pointer;
+    }
+
+    /* Task List */
+    .task-list {
+        @apply w-full md:w-4/5 lg:w-2/3 flex flex-col justify-center flex-wrap mx-auto space-y-2;
+    }
+    
+    /* Task item */
+    .task-item {
+        @apply w-full flex justify-between space-y-3 sm:space-y-0 bg-white px-4 py-4 rounded-lg shadow-sm border-l-8;
+    }
+    .task-item.low {
+        @apply border-green-500;
+    }
+    .task-item.medium {
+        @apply border-yellow-500;
+    }
+    .task-item.high {
+        @apply border-red-500;
+    }
+    .task-item-input {
+        @apply w-3/5 flex items-center space-x-4;
+    }
+    .task-item-input input {
+        /* @apply before:content-none relative h-6 w-6 cursor-pointer appearance-none rounded-md border-2 border-orange-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-orange-500 before:opacity-0 before:transition-opacity checked:border-orange-500 checked:bg-orange-500 checked:before:bg-orange-500 hover:before:opacity-50; */
+        @apply before:content-normal relative h-5 w-5 cursor-pointer appearance-auto accent-orange-500 text-white rounded-md border-2 border-orange-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-10 before:w-10 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-orange-500 before:opacity-0 before:transition-opacity hover:before:opacity-10;
+    }
+    .task-item-input input:checked + .task-item-text {
+        @apply line-through;
+    }
+    .task-item-text {
+        @apply flex flex-col overflow-hidden leading-4;
+    }
+    .task-item-title {
+        @apply font-medium truncate text-ellipsis;
+    }
+    .task-item-notes {
+        @apply text-xs truncate text-ellipsis;
+    }
+    .task-item-action {
+        @apply relative flex items-center space-x-4;
+    }
+    .task-item-action span {
+        @apply text-xs sm:text-sm font-medium px-2 sm:px-4 py-1 rounded-full;
+    }
+    .task-item-action .task-item-duedate {
+        @apply bg-orange-100 text-orange-500;
+    }
+    .task-item-action :button {
+        @apply flex-none;
+    }
+    .task-item-action button img {
+        @apply w-[17px] h-[17px];
+    }
+    .task-item-action .change-task-item-priority.low img {
+        filter: invert(54%) sepia(91%) saturate(417%) hue-rotate(89deg) brightness(97%) contrast(86%);
+    }
+    .task-item-action .change-task-item-priority.medium img {
+        filter: invert(76%) sepia(61%) saturate(3020%) hue-rotate(5deg) brightness(101%) contrast(94%);
+    }
+    .task-item-action .change-task-item-priority.high img {
+        filter: invert(55%) sepia(51%) saturate(1937%) hue-rotate(322deg) brightness(85%) contrast(125%);
+    }
+    .task-item-action .delete-task-item img {
+        filter: invert(22%) sepia(66%) saturate(6344%) hue-rotate(354deg) brightness(97%) contrast(126%);
+    }
+    .task-item-action .priority-context {
+        @apply hidden absolute top-10 right-8 flex flex-col bg-white border border-orange-200 shadow-lg rounded-md z-20;
+    }
+    .task-item-action .priority-context a {
+        @apply px-4 py-1 text-sm hover:bg-orange-300;
+    }
+    .task-item-action .priority-context a.active {
+        @apply bg-orange-300;
+    }
+    
+    /* Modal Form */
+    .modal-form-input-group input,
+    .modal-form-input-group textarea,
+    .modal-form-input-group select {
+        @apply w-full bg-gray-100 border border-gray-400/50 outline-none items-center px-4 py-2 rounded-sm;
+    }
+    .modal-form-input-group span {
+        @apply hidden h-4 mt-2 -translate-y-10 text-sm text-red-800;
+    }
+
+}

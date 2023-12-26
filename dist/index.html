@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>To Do List | The Odin Project</title>
+  </head>
+  <body>
+    <!-- ========== Start HEADER ========== -->
+    <header
+      class="header w-full px-5 py-3 flex bg-orange-600 text-white shadow-md sticky top-0 z-10"
+    >
+      <div class="w-full flex justify-between items-center">
+        <div class="brand flex items-center space-x-4">
+          <button class="sidebar-toggle sm:hidden">
+            <img src="./images/menu.svg" alt="MENU" />
+          </button>
+          <a
+            href="#"
+            class="logo flex items-center space-x-2 text-1xl font-bold"
+          >
+            <img src="./images/logo.png" alt="logo" class="w-8" />
+            <span>To Do List</span>
+          </a>
+        </div>
+        <div class="menu flex items-center hidden">
+          <button
+            class="px-6 py-2 text-semibold bg-orange-100 text-orange-950 rounded-full"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- ========== End HEADER ========== -->
+
+    <!-- ========== Start CONTAINER ========== -->
+    <div class="w-full min-h-[calc(100vh-56px)] relative flex justify-start items-stretch bg-slate-200">
+      <!-- ========== Start SIDEBAR ========== -->
+      <side class="sidebar hide" id="sidebar">
+        <div class="container p-5">
+          <div class="flex items-center justify-between">
+            <h4 class="text-2xl font-semibold px-3 py-2">Tasks</h4>
+            <button class="btn p-2 w-auto md:w-8 h-6 md:h-8 add-task-btn" title="Add Task" id="">
+              &plus;
+            </button>
+          </div>
+          <a href="#" class="sidebar-menu-item" id="alltasks">
+            <img src="./images/tasks.svg" alt="" />
+            <span>All tasks</span>
+          </a>
+          <a href="#" class="sidebar-menu-item" id="today">
+            <img src="./images/calendar-today.svg" alt="" />
+            <span>Today</span>
+          </a>
+          <a href="#" class="sidebar-menu-item" id="nextweek">
+            <img src="./images/calendar-week.svg" alt="" />
+            <span>Next 7 days</span>
+          </a>
+          <a href="#" class="sidebar-menu-item" id="important">
+            <img src="./images/star.svg" alt="" />
+            <span>Important</span>
+          </a>
+          <hr class="my-4" />
+          <div class="flex items-center justify-between">
+            <h4 class="text-2xl font-semibold px-3 py-2">Projects</h4>
+            <button
+              class="btn p-2 w-auto md:w-8 h-6 md:h-8 add-project-btn"
+              title="Add Project"
+              id="add-project-btn"
+            >
+              &plus;
+            </button>
+          </div>
+          <!-- project list -->
+          <div class="sidebar-project-list" id="sidebar-project-list">
+          </div> <!-- ./project list -->
+        </div>
+      </side>
+      <!-- ========== End SIDEBAR ========== -->
+
+      <!-- ========== Start MAIN SECTION ========== -->
+      <main class="main relative w-full md:w-4/5 lg:w-4/5 bg-orange-50">
+        <div class="container px-4 lg:px-10 py-6 space-y-10">
+          <!-- ========== Start Task List ========== -->
+          <div class="task-list-container space-y-6">
+            <!-- task list header -->
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg md:text-xl lg:text-2xl font-medium" id="task-list-title">Tasks list</h2>
+              <div class="flex items-center space-x-2">
+                <button class="btn light completed-task-btn" id="completed-task-btn" title="Show completed tasks">
+                  <img src="./images/check-double.svg" alt="">
+                  <span>Completed</span>
+                </button>
+                <button class="btn add-task-btn" id="add-task-btn">
+                  &plus; Add Task
+                </button>
+              </div>
+            </div>
+
+            <!-- Tasks list -->
+            <div id="task-list" class="task-list">
+              <!-- task item -->
+              <div class="task-item low hidden">
+                <div class="task-item-input">
+                  <input
+                    type="checkbox"
+                    name="task-1"
+                    id="task-1"
+                    class="task-item-checkbox"
+                  />
+                  <div class="task-item-text">
+                    <label class="task-item-title" for="task-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, repellendus.</label>
+                    <p class="task-item-notes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, ab. Lorem ipsum dolor sit amet.</p>
+                  </div>
+                </div>
+                <div class="task-item-action">
+                  <span class="task-item-duedate">3/12/2023</span>
+                  <button class="change-task-item-priority low" title="Low priority">
+                    <img src="./images/flag.svg" alt="Change" />
+                  </button>
+                  <button class="edit-task-item" title="Edit task">
+                    <img src="./images/edit.svg" alt="Edit" />
+                  </button>
+                  <button class="delete-task-item" title="Delete task">
+                    <img src="./images/delete.svg" alt="Delete" />
+                  </button>
+                </div>
+              </div>
+              <!-- task item -->
+              <div class="task-item high hidden">
+                <div class="task-item-input">
+                  <input
+                    type="checkbox"
+                    name="task-1"
+                    id="task-2"
+                    class="task-item-checkbox"
+                    checked
+                  />
+                  <div class="task-item-text">
+                    <label class="task-item-title" for="task-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, repellendus.</label>
+                    <p class="task-item-notes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, ab. Lorem ipsum dolor sit amet.</p>
+                  </div>
+                </div>
+                <div class="task-item-action">
+                  <span class="task-item-duedate">3/12/2023</span>
+                  <button class="change-task-item-priority high" title="High priority">
+                    <img src="./images/flag.svg" alt="Change" />
+                  </button>
+                  <button class="edit-task-item" title="Edit">
+                    <img src="./images/edit.svg" alt="Edit" />
+                  </button>
+                  <button class="delete-task-item" title="Delete">
+                    <img src="./images/delete.svg" alt="Delete" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ========== End Task List ========== -->
+
+        </div>
+        <!-- Container -->
+      </main>
+      <!-- ========== End MAIN SECTION ========== -->
+    </div>
+    <!-- ========== End CONTAINER ========== -->
+
+    <!-- ========== Start MODALS ========== -->
+    <!-- Project Form -->
+    <dialog
+      class="project-modal w-full h-full bg-gray-500/40 hidden fixed top-0 left-0 pt-20 flex items-start justify-center z-20"
+      id="project-modal"
+      role="project-modal"
+    >
+      <form
+        action="#"
+        class="project-form w-5/12 relative bg-white p-6 flex flex-col space-y-6 rounded-lg shadow-lg z-10"
+        id="project-form"
+        method="dialog"
+        data-form-type="add"
+      >
+        <div class="flex justify-between items-center">
+          <h3 class="text-xl font-bold">New Project</h3>
+          <span
+            class="close-project-modal text-3xl font-semibold text-orange-600 cursor-pointer"
+            title="Close"
+            >&times;</span
+          >
+        </div>
+        <hr>
+        <!-- Title -->
+        <div class="modal-form-input-group">
+          <input
+            type="text"
+            name="form-project-title"
+            id="form-project-title"
+            placeholder="Title"
+            minlength="6"
+            required
+          />
+          <span class="form-project-title-error">This project already exists in your store</span>
+        </div>
+        <hr>
+        <!-- form action -->
+        <div class="form-action w-full flex items-center justify-end space-x-4">
+          <button
+            type="reset"
+            class="reset-form px-4 py-1 rounded-md bg-orange-50 text-orange-800 shadow-sm"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="submit-project-form px-4 py-1 rounded-md bg-orange-500 text-white shadow-sm"
+          >
+            Create
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- Task Form -->
+    <dialog
+      class="task-modal w-full h-full bg-gray-500/40 hidden fixed top-0 left-0 pt-20 flex items-start justify-center z-20"
+      id="task-modal"
+      role="task-modal"
+    >
+      <form
+        action="#"
+        class="task-form w-5/12 relative bg-white p-6 flex flex-col space-y-6 rounded-lg shadow-lg z-10"
+        id="task-form"
+        data-form-type="add"
+        method="dialog"
+      >
+        <div class="flex justify-between items-center">
+          <h3 class="text-xl font-bold">New Task</h3>
+          <span
+            class="close-task-modal text-3xl font-semibold text-orange-600 cursor-pointer"
+            title="Close"
+            >&times;</span
+          >
+        </div>
+        <hr>
+        <!-- inputs wrapper -->
+        <div class="w-full flex space-x-4">
+          <div class="w-1/2 space-y-4">
+            <!-- Title -->
+            <div class="modal-form-input-group">
+              <input
+                type="text"
+                name="form-task-title"
+                id="form-task-title"
+                placeholder="Title"
+                minlength="6"
+                required
+              />
+              <span class="form-task-title-error">A task with this title is already exists in your project</span>
+            </div>
+            <!-- notes -->
+            <div class="modal-form-input-group">
+              <textarea
+                name="form-task-notes"
+                id="form-task-notes"
+                cols="30"
+                rows="4"
+                required
+                placeholder="Notes"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="w-1/2 space-y-4">
+            <!-- Due Date -->
+            <div class="modal-form-input-group">
+              <input type="date" name="form-task-duedate" id="form-task-duedate" placeholder="Due Date" required>
+            </div>
+            <!-- Priority -->
+            <div class="modal-form-input-group">
+              <select name="form-task-priority" id="form-task-priority" required>
+                <option value="" selected disabled>Priority</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <!-- Project -->
+            <div class="modal-form-input-group">
+              <select name="form-task-project" id="form-task-project" required>
+                <option value="" selected disabled class="text-gray-400">Project</option>
+              </select>
+            </div>
+          </div>
+        </div> <!-- inputs wrapper -->
+        <hr>
+        <!-- form action -->
+        <div class="form-action w-full flex items-center justify-end space-x-4">
+          <button
+            type="reset"
+            formmethod="dialog"
+            class="reset-form px-4 py-1 rounded-md bg-orange-50 text-orange-800 shadow-sm"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="submit-form form-task-submit px-4 py-1 rounded-md bg-orange-500 text-white shadow-sm"
+          >
+            Create
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <!-- ========== End MODALS ========== -->
+
+    <!-- SCRIPTS -->
+    <script
+      type="module"
+      src="https://unpkg.com/@material-tailwind/html@latest/scripts/popover.js"
+    ></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
